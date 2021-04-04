@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\PenggunaController;
 
 /*
@@ -18,7 +19,7 @@ use App\Http\Controllers\PenggunaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('dashboard');
 });
 
 Route::middleware(['auth:sanctum','verified'])->group(function () {
@@ -53,6 +54,13 @@ Route::middleware(['auth:sanctum','verified'])->group(function () {
     Route::get('/siswa/create',App\Http\Livewire\Siswa\Create::class)->name('siswa.create');
     Route::get('/siswa/{id}/edit',App\Http\Livewire\Siswa\Edit::class)->name('siswa.edit');
     Route::delete('/siswa/{id}',[SiswaController::class,'destroy'])->name('siswa.destroy');
+
+    //Tagihan
+    Route::get('/tagihan',[TagihanController::class,'index'])->name('tagihan');
+    Route::get('/tagihan/create',App\Http\Livewire\Tagihan\Create::class)->name('tagihan.create');
+    Route::get('/tagihan/{id}/edit',App\Http\Livewire\Tagihan\Edit::class)->name('tagihan.edit');
+    Route::delete('/tagihan/{id}',[TagihanController::class,'destroy'])->name('tagihan.destroy');
+
 
 
 });

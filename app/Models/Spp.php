@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Periode;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,4 +23,9 @@ class Spp extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function perioded()
+    {
+        return $this->belongsTo(Periode::class,'periode_id');
+    }
 }
