@@ -27,7 +27,7 @@
                 <x-jet-label for="periode_id" value="{{ __('Periode') }}" />
                 <select name="periode_id" id="periode_id" class="form-control " required wire:model="periode_id">
                     @php
-                        $datas = App\Models\Periode::all();
+                        $datas = App\Models\Periode::where('is_active',true)->get();
                     @endphp
                     @foreach ($datas as $data)
                         <option value="{{ $data->id }}">{{ $data->nama }}</option>

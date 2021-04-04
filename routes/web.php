@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\PenggunaController;
 
@@ -46,5 +47,12 @@ Route::middleware(['auth:sanctum','verified'])->group(function () {
     Route::get('/kelas/create',App\Http\Livewire\Kelas\Create::class)->name('kelas.create');
     Route::get('/kelas/{id}/edit',App\Http\Livewire\Kelas\Edit::class)->name('kelas.edit');
     Route::delete('/kelas/{id}',[KelasController::class,'destroy'])->name('kelas.destroy');
+
+    //Siswa
+    Route::get('/siswa',[SiswaController::class,'index'])->name('siswa');
+    Route::get('/siswa/create',App\Http\Livewire\Siswa\Create::class)->name('siswa.create');
+    Route::get('/siswa/{id}/edit',App\Http\Livewire\Siswa\Edit::class)->name('siswa.edit');
+    Route::delete('/siswa/{id}',[SiswaController::class,'destroy'])->name('siswa.destroy');
+
 
 });

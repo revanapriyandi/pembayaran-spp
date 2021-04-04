@@ -16,6 +16,11 @@
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
 
+                {{--  Siswa  --}}
+                <x-jet-nav-link href="{{ route('siswa') }}" :active="request()->routeIs('siswa')">
+                    {{ __('Siswa') }}
+                </x-jet-nav-link>
+
                 {{--  Kelas  --}}
                 <x-jet-nav-link href="{{ route('kelas') }}" :active="request()->routeIs('kelas')">
                     {{ __('Kelas') }}
