@@ -46,19 +46,6 @@
                     <x-jet-input class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
                 </div>
 
-                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <x-jet-checkbox id="terms" name="terms" />
-                            <label class="custom-control-label" for="terms">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'">'.__('Privacy Policy').'</a>',
-                                    ]) !!}
-                            </label>
-                        </div>
-                    </div>
-                @endif
 
                 <div class="mb-0">
                     <div class="d-flex justify-content-end align-items-baseline">
