@@ -16,6 +16,16 @@
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
 
+                {{--  Kelas  --}}
+                <x-jet-nav-link href="{{ route('kelas') }}" :active="request()->routeIs('kelas')">
+                    {{ __('Kelas') }}
+                </x-jet-nav-link>
+
+                {{--  Periode  --}}
+                <x-jet-nav-link href="{{ route('periode') }}" :active="request()->routeIs('periode')">
+                    {{ __('Periode') }}
+                </x-jet-nav-link>
+
                 {{--  Pengguna  --}}
                 <x-jet-nav-link href="{{ route('pengguna') }}" :active="request()->routeIs('pengguna')">
                     {{ __('Pengguna') }}

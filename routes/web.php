@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +25,26 @@ Route::middleware(['auth:sanctum','verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    //Pengguna
     Route::get('/pengguna',[PenggunaController::class,'index'])->name('pengguna');
     Route::get('/pengguna/create',App\Http\Livewire\Pengguna\Create::class)->name('pengguna.create');
     Route::get('/pengguna/{id}/edit',App\Http\Livewire\Pengguna\Edit::class)->name('pengguna.edit');
     Route::delete('/pengguna/{id}',[PenggunaController::class,'destroy'])->name('pengguna.destroy');
     Route::post('/pengguna/{id}/active',[PenggunaController::class,'active'] )->name('pengguna.active');
     Route::post('/pengguna/{id}/disable',[PenggunaController::class,'disabled'] )->name('pengguna.disable');
+
+    //Periode
+    Route::get('/periode',[PeriodeController::class,'index'])->name('periode');
+    Route::get('/periode/create',App\Http\Livewire\Periode\Create::class)->name('periode.create');
+    Route::get('/periode/{id}/edit',App\Http\Livewire\Periode\Edit::class)->name('periode.edit');
+    Route::delete('/periode/{id}',[PeriodeController::class,'destroy'])->name('periode.destroy');
+    Route::post('/periode/{id}/active',[PeriodeController::class,'active'] )->name('periode.active');
+    Route::post('/periode/{id}/disable',[PeriodeController::class,'disabled'] )->name('periode.disable');
+
+    //Kelas
+    Route::get('/kelas',[KelasController::class,'index'])->name('kelas');
+    Route::get('/kelas/create',App\Http\Livewire\Kelas\Create::class)->name('kelas.create');
+    Route::get('/kelas/{id}/edit',App\Http\Livewire\Kelas\Edit::class)->name('kelas.edit');
+    Route::delete('/kelas/{id}',[KelasController::class,'destroy'])->name('kelas.destroy');
 
 });

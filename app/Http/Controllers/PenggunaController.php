@@ -19,7 +19,7 @@ class PenggunaController extends Controller
                 if ($s->is_active == true) {
                     $aktif = '<form action="'.route('pengguna.disable',$s->id).'" method="post">' . csrf_field() . '<button type="submit" class="btn btn-success btn-sm"> <i class="fa fa-check"> </i> </button> </form> ';
                 }else{
-                    $aktif = '<form action="'.route('pengguna.active',$s->id).'" method="post">' . csrf_field() . '<button type="submit" class="btn btn-"danger btn-sm"> <i class="fa fa-times"> </i> </button> </form> ';
+                    $aktif = '<form action="'.route('pengguna.active',$s->id).'" method="post">' . csrf_field() . '<button type="submit" class="btn btn-danger btn-sm"> <i class="fa fa-times"> </i> </button> </form> ';
                 }
                 return $aktif;
             })
@@ -58,6 +58,7 @@ class PenggunaController extends Controller
             return back();
         }
         $user->delete();
+        return back();
     }
 
 }

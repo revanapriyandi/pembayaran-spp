@@ -1,24 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="h4 font-weight-bold">
-            {{ __('Periode') }}
+            {{ __('Kelas') }}
         </h2>
     </x-slot>
 
     <div class="card">
         <div class="card-title">
-            <a href="{{ route('periode.create') }}" class="btn btn-primary btn-sm">{{ __('Tambah Data') }}</a>
+            <a href="{{ route('kelas.create') }}" class="btn btn-primary btn-sm">{{ __('Tambah Data') }}</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-borderless" id="table-periode">
+                <table class="table table-borderless" id="table-kelas">
                     <thead align="center">
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">{{ __('Periode') }}</th>
                             <th scope="col">{{ __('Nama') }}</th>
-                            <th scope="col">{{ __('Tanggal Mulai') }}</th>
-                            <th scope="col">{{ __('Tanggal Selesai') }}</th>
-                            <th scope="col">{{ __('isActive') }}</th>
+                            <th scope="col">{{ __('Kompetensi Keahlian') }}</th>
                             <th scope="col">{{ __('') }}</th>
                         </tr>
                     </thead>
@@ -50,18 +49,17 @@
                 }
             });
         }
-        var table = $('#table-periode').DataTable({
+        var table = $('#table-kelas').DataTable({
                     destroy: true,
                     info: false,
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('periode') }}",
+                    ajax: "{{ route('kelas') }}",
                     columns: [
                         { data: 'DT_RowIndex', name:'DT_RowIndex'},
+                        {data: 'periode_id', name: 'periode_id'},
                         {data: 'nama', name: 'nama'},
-                        {data: 'tgl_mulai', name: 'tgl_mulai'},
-                        {data: 'tgl_selesai', name: 'tgl_selesai'},
-                        {data: 'is_active', name: 'is_active'},
+                        {data: 'kompetensi_keahlian', name: 'kompetensi_keahlian'},
                         {data: 'aksi', name:'aksi'}
                     ]
                 });
